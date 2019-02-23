@@ -86,7 +86,7 @@ transactions = [
       "Payment",
       "Credit Card"
     ],
-    "category_id": "16001000",
+    "category_id": 1,
     "date": "2019-02-20",
     "iso_currency_code": "USD",
     "location": {
@@ -108,7 +108,7 @@ transactions = [
       "Car Service",
       "Ride Share"
     ],
-    "category_id": "22006001",
+    "category_id": 3,
     "date": "2019-02-20",
     "iso_currency_code": "USD",
     "location": {
@@ -128,7 +128,7 @@ transactions = [
     "category": [
       "Payment"
     ],
-    "category_id": "16000000",
+    "category_id": 1,
     "date": "2019-02-19",
     "iso_currency_code": "USD",
     "location": {
@@ -149,7 +149,7 @@ transactions = [
       "Transfer",
       "Deposit"
     ],
-    "category_id": "21007000",
+    "category_id": 1,
     "date": "2019-02-19",
     "iso_currency_code": "USD",
     "location": {
@@ -170,7 +170,7 @@ transactions = [
       "Recreation",
       "Gyms and Fitness Centers"
     ],
-    "category_id": "17018000",
+    "category_id": 7,
     "date": "2019-02-18",
     "iso_currency_code": "USD",
     "location": {
@@ -191,7 +191,7 @@ transactions = [
       "Travel",
       "Airlines and Aviation Services"
     ],
-    "category_id": "22001000",
+    "category_id": 3,
     "date": "2019-02-18",
     "iso_currency_code": "USD",
     "location": {
@@ -212,7 +212,7 @@ transactions = [
       "Food and Drink",
       "Restaurants"
     ],
-    "category_id": "13005000",
+    "category_id": 2,
     "date": "2019-02-17",
     "iso_currency_code": "USD",
     "location": {
@@ -234,7 +234,7 @@ transactions = [
       "Restaurants",
       "Coffee Shop"
     ],
-    "category_id": "13005043",
+    "category_id": 2,
     "date": "2019-02-17",
     "iso_currency_code": "USD",
     "location": {
@@ -255,7 +255,7 @@ transactions = [
       "Food and Drink",
       "Restaurants"
     ],
-    "category_id": "13005000",
+    "category_id": 2,
     "date": "2019-02-16",
     "iso_currency_code": "USD",
     "location": {
@@ -276,7 +276,7 @@ transactions = [
       "Food and Drink",
       "Restaurants"
     ],
-    "category_id": "13005000",
+    "category_id": 2,
     "date": "2019-02-15",
     "iso_currency_code": "USD",
     "location": {
@@ -297,7 +297,7 @@ transactions = [
       "Travel",
       "Airlines and Aviation Services"
     ],
-    "category_id": "22001000",
+    "category_id": 3,
     "date": "2019-02-05",
     "iso_currency_code": "USD",
     "location": {
@@ -319,7 +319,7 @@ transactions = [
       "Car Service",
       "Ride Share"
     ],
-    "category_id": "22006001",
+    "category_id": 6,
     "date": "2019-02-03",
     "iso_currency_code": "USD",
     "location": {
@@ -340,7 +340,7 @@ transactions = [
       "Food and Drink",
       "Restaurants"
     ],
-    "category_id": "13005000",
+    "category_id": 2,
     "date": "2019-01-31",
     "iso_currency_code": "USD",
     "location": {
@@ -360,7 +360,7 @@ transactions = [
     "category": [
       "Payment"
     ],
-    "category_id": "16000000",
+    "category_id": 1,
     "date": "2019-01-30",
     "iso_currency_code": "USD",
     "location": {
@@ -381,7 +381,7 @@ transactions = [
       "Food and Drink",
       "Restaurants"
     ],
-    "category_id": "13005000",
+    "category_id": 2,
     "date": "2019-01-30",
     "iso_currency_code": "USD",
     "location": {
@@ -402,7 +402,7 @@ transactions = [
       "Shops",
       "Sporting Goods"
     ],
-    "category_id": "19046000",
+    "category_id": 5,
     "date": "2019-01-30",
     "iso_currency_code": "USD",
     "location": {
@@ -420,10 +420,10 @@ transactions = [
 
 transactions.each do |transaction|
   users = User.all
-  categories = Category.all
+  # categories = Category.all
   user_id = (0..4).to_a.sample
-  category_id = (0..7).to_a.sample
-  Transaction.create(user_id: user_id, category_id: category_id, name: transaction[:name], date: transaction[:date], amount: transaction[:amount], location: Faker::Nation.capital_city)
+  # category_id = (0..7).to_a.sample
+  Transaction.create(user_id: user_id, category_id: transaction[:category_id], name: transaction[:name], date: transaction[:date], amount: transaction[:amount], location: Faker::Nation.capital_city)
 end
 
 puts "created transactions"

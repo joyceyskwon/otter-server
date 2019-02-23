@@ -18,6 +18,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'faker'
 
+gem 'jwt'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
