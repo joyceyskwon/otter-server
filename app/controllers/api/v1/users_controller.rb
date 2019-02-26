@@ -12,11 +12,16 @@ class Api::V1::UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
-    if condition
-      token = JMT.encode({user_id: @user.id}, "otter")
-      render json: {user: UserSerializer.new(@user), token: token}
+    if @user.save
+      user_id = encode_token(@user.id)
+      render json: {
+        user: UserSerializer.new(@user),
+        token: token
+      }
     else
-      render json: {errors: @user.errors.full_messages}
+      render json: {
+        errors: @user.errors.full_messages
+      }
     end
   end
 

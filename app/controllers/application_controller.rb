@@ -1,19 +1,13 @@
 class ApplicationController < ActionController::API
 
-  def encode_token(user_id)
-    JWT.encode({user_id: user_id}, "otter")
-    if @user && @user.authenticate(params[:password])
-      token = JWT.encode({user_id: @user.id}, "otter")
-      render json: {user: UserSerializer.new(@user), }
-    else
-      render json: {errors: "GOOFED"}
-    end
-  end
-
   def token
     request.headers["Authorization"]
   end
 
+  def encode_token(user_id)
+    JWT.encode({user_id: user_id}, "otter")
+  end
+  
   def decode_token
     begin
       JWT.decode(token, "otter")[0][:user_id]
