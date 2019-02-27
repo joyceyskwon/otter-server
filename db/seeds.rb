@@ -6,7 +6,7 @@ puts "create users"
 User.create!([{
   name: Faker::Name.unique.name,
   username: Faker::Name.unique.name.downcase.strip,
-  password: Faker::Crypto.md5,
+  password: "1234",
   bank: Faker::Bank.name,
   account_number: Faker::Bank.account_number,
   monthly_income: 6600
@@ -14,7 +14,7 @@ User.create!([{
 {
   name: Faker::Name.unique.name,
   username: Faker::Name.unique.name.downcase.strip,
-  password: Faker::Crypto.md5,
+  password: "1234",
   bank: Faker::Bank.name,
   account_number: Faker::Bank.account_number,
   monthly_income: 5000
@@ -22,7 +22,7 @@ User.create!([{
 {
   name: Faker::Name.unique.name,
   username: Faker::Name.unique.name.downcase.strip,
-  password: Faker::Crypto.md5,
+  password: "1234",
   bank: Faker::Bank.name,
   account_number: Faker::Bank.account_number,
   monthly_income: 6555
@@ -30,7 +30,7 @@ User.create!([{
 {
   name: Faker::Name.unique.name,
   username: Faker::Name.unique.name.downcase.strip,
-  password: Faker::Crypto.md5,
+  password: "1234",
   bank: Faker::Bank.name,
   account_number: Faker::Bank.account_number,
   monthly_income: 7000
@@ -38,7 +38,7 @@ User.create!([{
 {
   name: Faker::Name.unique.name,
   username: Faker::Name.unique.name.downcase.strip,
-  password: Faker::Crypto.md5,
+  password: "1234",
   bank: Faker::Bank.name,
   account_number: Faker::Bank.account_number,
   monthly_income: 7300
@@ -420,9 +420,10 @@ transactions = [
 
 transactions.each do |transaction|
   users = User.all
-  # categories = Category.all
   user_id = (0..4).to_a.sample
-  # category_id = (0..7).to_a.sample
+
+  # user_id = User.all.sample.id
+
   Transaction.create(user_id: user_id, category_id: transaction[:category_id], name: transaction[:name], date: transaction[:date], amount: transaction[:amount], location: Faker::Nation.capital_city)
 end
 

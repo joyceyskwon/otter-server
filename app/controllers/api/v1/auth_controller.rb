@@ -1,7 +1,7 @@
 class Api::V1::AuthController < ApplicationController
 
   def login
-    @user = User.find_by(params[:username])
+    @user = User.find_by(username: params[:username])
     if @user && @user.authenticate(params[:password])
       token = encode_token(@user.id)
       render json: {
@@ -13,7 +13,7 @@ class Api::V1::AuthController < ApplicationController
     end
   end
 
-  def show_user_from_token
+  def get_user_from_token
     if current_user
       render json: current_user
     else
