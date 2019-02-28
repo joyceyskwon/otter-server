@@ -44,8 +44,4 @@ class Api::V1::UsersController < ApplicationController
     params.require(:user).permit(:name, :username, :password, :bank, :account_number, :monthly_income)
   end
 
-  def login_params
-    params.require(:user).permit(:username, :password)
-  end
-
 end

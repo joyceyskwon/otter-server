@@ -419,10 +419,7 @@ transactions = [
 ]
 
 transactions.each do |transaction|
-  users = User.all
-  user_id = (0..4).to_a.sample
-
-  # user_id = User.all.sample.id
+  user_id = User.all.sample.id
 
   Transaction.create(user_id: user_id, category_id: transaction[:category_id], name: transaction[:name], date: transaction[:date], amount: transaction[:amount], location: Faker::Nation.capital_city)
 end
