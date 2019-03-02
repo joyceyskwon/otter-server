@@ -10,7 +10,7 @@ class ApplicationController < ActionController::API
 
   def decode_token
     begin
-      JWT.decode(token, "otter")[0][:user_id]
+      JWT.decode(token, "otter")[0]["user_id"]
     rescue
       nil
     end
