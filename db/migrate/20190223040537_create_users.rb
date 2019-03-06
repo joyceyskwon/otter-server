@@ -5,7 +5,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :username
       t.string :password_digest
       t.string :bank
-      t.integer :account_number
+      t.bigint :account_number
       t.decimal :monthly_income
 
       t.timestamps
