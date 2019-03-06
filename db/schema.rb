@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2019_02_23_040655) do
     t.string "username"
     t.string "password_digest"
     t.string "bank"
-    t.integer "account_number"
+    t.string "account_number"
     t.decimal "monthly_income"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
