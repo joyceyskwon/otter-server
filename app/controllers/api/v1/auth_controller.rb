@@ -14,8 +14,8 @@ class Api::V1::AuthController < ApplicationController
   end
 
   def get_user_from_token
-    if current_user
-      render json: current_user
+    if curr_user
+      render json: curr_user
     else
       render json: {errors: "No id present on headers"}
     end
