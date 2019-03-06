@@ -8,7 +8,7 @@ User.create!([{
   username: Faker::Name.unique.name.downcase.strip,
   password: "1234",
   bank: Faker::Bank.name,
-  account_number: Faker::Bank.account_number,
+  account_number: Faker::Bank.account_number.to_s,
   monthly_income: 6600
 },
 {
@@ -16,7 +16,7 @@ User.create!([{
   username: Faker::Name.unique.name.downcase.strip,
   password: "1234",
   bank: Faker::Bank.name,
-  account_number: Faker::Bank.account_number,
+  account_number: Faker::Bank.account_number.to_s,
   monthly_income: 5000
 },
 {
@@ -24,7 +24,7 @@ User.create!([{
   username: Faker::Name.unique.name.downcase.strip,
   password: "1234",
   bank: Faker::Bank.name,
-  account_number: Faker::Bank.account_number,
+  account_number: Faker::Bank.account_number.to_s,
   monthly_income: 6555
 },
 {
@@ -32,7 +32,7 @@ User.create!([{
   username: Faker::Name.unique.name.downcase.strip,
   password: "1234",
   bank: Faker::Bank.name,
-  account_number: Faker::Bank.account_number,
+  account_number: Faker::Bank.account_number.to_s,
   monthly_income: 7000
 },
 {
@@ -40,7 +40,7 @@ User.create!([{
   username: Faker::Name.unique.name.downcase.strip,
   password: "1234",
   bank: Faker::Bank.name,
-  account_number: Faker::Bank.account_number,
+  account_number: Faker::Bank.account_number.to_s,
   monthly_income: 7300
 }])
 puts "created users"
