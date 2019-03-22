@@ -21,4 +21,20 @@ class Api::V1::AuthController < ApplicationController
     end
   end
 
+  def edit_curr_user
+    if curr_user
+      @user = curr_user
+      @user.update(user_params)
+      redirect_to json: curr_user
+    else
+      render json: {errors: "cannot update!"}
+    end
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:name, :username, :password, :bank, :account_number, :monthly_income)
+  end
+
 end

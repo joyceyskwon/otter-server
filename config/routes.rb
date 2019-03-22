@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
       post '/login', to: 'auth#login'
       get '/current_user', to: 'auth#get_user_from_token'
+      patch '/update_user', to: 'auth#edit_curr_user'
 
       post '/signup', to: 'users#create'
     end
